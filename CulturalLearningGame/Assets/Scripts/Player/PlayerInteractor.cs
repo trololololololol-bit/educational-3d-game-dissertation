@@ -13,7 +13,7 @@ public class PlayerInteractor : MonoBehaviour
     void Update()
     {
         if(Keyboard.current.eKey.wasPressedThisFrame) {
-        float interactRange = 2f;
+        float interactRange = 3f;
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
         foreach(Collider collider in colliderArray)
             {
@@ -24,5 +24,19 @@ public class PlayerInteractor : MonoBehaviour
             }
         }
         
+    }
+
+    public NPCInteractable GetInteractableObject()
+    {
+        
+        float interactRange = 3f;
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+        foreach(Collider collider in colliderArray)
+            {
+                if (collider.GetComponentInParent<NPCInteractable>() is NPCInteractable npcInteraction)
+                {
+                    return npcInteraction;
+                }
+            } return null;
     }
 }
