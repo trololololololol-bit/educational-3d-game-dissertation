@@ -1,13 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using DialogueEditor;
+
 
 public class NPCInteractable : MonoBehaviour {
 
-    private NPCDialogue dialogue;
-
-    private void Awake()
-    {
-        dialogue = GetComponentInChildren<NPCDialogue>();
-    }
+    [Header("DialogueEditor")]
+    public NPCConversation normalConversation;
+    public NPCConversation sadConversation;
+    public NPCConversation rejectedConversation;
+    public NPCConversation completedConversation;
+    
 
 
     public enum NPCRole
@@ -23,68 +28,106 @@ public class NPCInteractable : MonoBehaviour {
     [Header("NPC")]
     public NPCRole npcRole;
 
-    [TextArea]
-    public string dialogueText;
-
     public void Interact()
     {
-        
         switch (npcRole)
         {
-            
             case NPCRole.FestivalDialogue:
-                OpenDialogue();
+                StartConversation();
                 break;
 
             case NPCRole.RecallMiniGame:
-                StartRecallMiniGame();
+                StartConversation();
+                Debug.Log("Start recall mini game");
                 break;
 
             case NPCRole.PrecisionMiniGame:
-                StartPrecisionMiniGame();
+                StartConversation();
+                Debug.Log("Start precision mini game");
                 break;
 
             case NPCRole.DeliveryTask:
-                OpenDeliveryTask();
+                StartConversation();
                 break;
 
             case NPCRole.DecorationTask:
-                OpenDecorationTask();
+                StartConversation();
                 break;
 
             case NPCRole.FishingTask:
-                OpenFishingTask();
+                StartConversation();
                 break;
         }
     }
 
-    void OpenDialogue()
+        void StartConversation()
     {
-        Debug.Log("Dialogue NPC says: " + dialogueText);
+        NPCConversation chosenConversation = normalConversation;
+        // global
+        if (GameManager.Instance.festivalSaturationLevel < 0.4f && sadConversation != null)
+        {
+        chosenConversation = sadConversation;
+        }
+        
+
+        // role specific
+
+        switch (npcRole)
+        {
+        case NPCRole.FishingTask:
+
+            if (GameManager.Instance.fishingTaskComplete && completedConversation != null)
+                chosenConversation = completedConversation;
+
+            else if (GameManager.Instance.fishingTaskRejected && rejectedConversation != null)
+                chosenConversation = rejectedConversation;
+
+            break;
+
+        case NPCRole.DecorationTask:
+
+            if (GameManager.Instance.decorationTaskComplete && completedConversation != null)
+                chosenConversation = completedConversation;
+            else if (GameManager.Instance.decorationTaskRejected && rejectedConversation != null)
+                chosenConversation = rejectedConversation;
+            break;
+
+        case NPCRole.DeliveryTask:
+
+            if (GameManager.Instance.deliveryTaskComplete && completedConversation != null)
+                chosenConversation = completedConversation;
+            else if (GameManager.Instance.deliveryTaskRejected && rejectedConversation != null)
+                chosenConversation = rejectedConversation;
+
+            break;
+        }
+
+
+
+        // start convo
+
+        
+            ConversationManager.Instance.StartConversation(chosenConversation);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            ConversationManager.OnConversationEnded += LockCursorAgain;
+        
     }
 
-    void StartRecallMiniGame()
+    private void LockCursorAgain()
     {
-        Debug.Log("Dario starts recall mini-game"+ dialogueText);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        ConversationManager.OnConversationEnded -= LockCursorAgain;
     }
 
-    void StartPrecisionMiniGame()
-    {
-        Debug.Log("Dino starts precision mini-game"+ dialogueText);
-    }
-
-    void OpenDeliveryTask()
-    {
-        Debug.Log("NPC offers delivery task - accept or decline"+ dialogueText);
-    }
-
-    void OpenDecorationTask()
-    {
-        Debug.Log("NPC offers decoration task- accept or decline"+ dialogueText);
-    }
    
-    void OpenFishingTask()
-    {
-        Debug.Log("NPC offers fishing task - accept or decline"+ dialogueText);
-    }
 }
+
+
+
+
+    

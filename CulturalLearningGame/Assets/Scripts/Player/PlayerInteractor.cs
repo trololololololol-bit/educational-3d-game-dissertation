@@ -23,6 +23,11 @@ public class PlayerInteractor : MonoBehaviour
                 }
             }
         }
+
+        if (Keyboard.current.fKey.wasPressedThisFrame)
+    {
+    TryDeliver();
+    }
         
     }
 
@@ -39,4 +44,27 @@ public class PlayerInteractor : MonoBehaviour
                 }
             } return null;
     }
+
+void TryDeliver()
+{
+    if (DeliveryMiniGame.Instance.cheeseRemaining <= 0)
+        return;
+
+    float interactRange = 3f;
+    Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+
+    foreach(Collider collider in colliderArray)
+    {
+        if (collider.GetComponentInParent<NPCInteractable>() != null)
+        {
+            DeliveryMiniGame.Instance.DeliverCheese();
+            break;
+        }
+    }
+}
+
+
+
+
+
 }
