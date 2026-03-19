@@ -49,6 +49,7 @@ public class Tile : MonoBehaviour
 
 
         recallManager.PlayLightAndTone(tileId);
+        recallManager.PlayerSelect(tileId);
     }
 
 

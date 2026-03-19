@@ -1002,7 +1002,7 @@ GameObject:
   - component: {fileID: 75832549}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2434,7 +2434,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8254717, b: 0.9202428, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
@@ -2478,7 +2478,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 2861
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -3238,7 +3238,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b58b7f9ce3b4b5748991d09a5690a820, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.4951887
+      value: 7.783869
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b58b7f9ce3b4b5748991d09a5690a820, type: 3}
       propertyPath: m_LocalScale.y
@@ -3250,7 +3250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b58b7f9ce3b4b5748991d09a5690a820, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.71786
+      value: -14.04
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b58b7f9ce3b4b5748991d09a5690a820, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3258,7 +3258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b58b7f9ce3b4b5748991d09a5690a820, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.681081
+      value: 8.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b58b7f9ce3b4b5748991d09a5690a820, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3808,7 +3808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8505013, b: 0.41037738, a: 1}
+  m_Color: {r: 0.9764706, g: 0.90588236, b: 0.74509805, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10759,20 +10759,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueEditor.NPCConversation
   CurrentIDCounter: 8
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":272,"yPos":251},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Of
-    course!","parentUIDs":[3],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":532,"yPos":253},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"No.
-    I''m good. ","parentUIDs":[3],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":-65,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Leonardo''s
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":450,"yPos":302},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Of
+    course!","parentUIDs":[3],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":710,"yPos":304},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"No.
+    I''m good. ","parentUIDs":[3],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":113,"yPos":73},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Leonardo''s
     friend!","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Marcello
-    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":162,"yPos":21},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":340,"yPos":72},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"I
     actually have a favour to ask you. ","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Marcello
-    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":389,"yPos":25},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"This
+    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":567,"yPos":76},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"This
     is my cheese stall and I have prepared snacks for everyone since they have all
     been so hard at work on the festival. ","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Marcello
-    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":4},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":432,"yPos":160},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Could
+    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":4},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":610,"yPos":211},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Could
     you deliver some around town?","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Marcello
-    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":179,"yPos":328},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Pefect.
+    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":357,"yPos":379},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"Pefect.
     Once you''re done delivering to everyone come back and let me know. ","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Marcello
-    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":587,"yPos":351},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Fair
+    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":765,"yPos":402},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Fair
     enough...","parentUIDs":[6],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Marcello
     ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
@@ -10795,7 +10795,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1939030}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartDeliveryTask
+        m_MethodName: DesaturateEnvironment
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

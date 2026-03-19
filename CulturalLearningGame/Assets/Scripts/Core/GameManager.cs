@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     public void StartRecallGame()
     {
         Debug.Log("Recall game started");
+        //RecallMiniGame.Instance.StartTask();
     }
 
     public void StartPrecisionGame()
