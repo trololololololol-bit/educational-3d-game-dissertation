@@ -55,9 +55,11 @@ void TryDeliver()
 
     foreach(Collider collider in colliderArray)
     {
-        if (collider.GetComponentInParent<NPCInteractable>() != null)
+        if (collider.GetComponentInParent<NPCInteractable>() != null && !collider.GetComponentInParent<NPCInteractable>().hasReceivedCheese)
         {
+            collider.GetComponentInParent<NPCInteractable>().hasReceivedCheese = true; 
             DeliveryMiniGame.Instance.DeliverCheese();
+            collider.GetComponentInParent<NPCInteractable>().StartThankYouDialogue();
             break;
         }
     }

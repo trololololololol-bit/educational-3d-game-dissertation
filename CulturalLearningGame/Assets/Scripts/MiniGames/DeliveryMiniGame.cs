@@ -7,6 +7,8 @@ public class DeliveryMiniGame : MonoBehaviour
     public int cheeseRemaining;
     public int startingCheese = 4;
 
+    public AudioSource deliveryAudio;
+
     void Awake()
     {
         Instance = this;
@@ -25,6 +27,9 @@ public class DeliveryMiniGame : MonoBehaviour
         if (cheeseRemaining <= 0) return;
 
         cheeseRemaining--;
+        if (deliveryAudio != null)
+        deliveryAudio.Play();
+
 
         if (cheeseRemaining <= 0)
         {
@@ -37,6 +42,7 @@ public class DeliveryMiniGame : MonoBehaviour
         Debug.Log("Delivery complete!");
 
         GameManager.Instance.deliveryTaskComplete = true;
+        GameManager.Instance.currentTask = GameManager.TaskType.None;
         cheeseIcons.SetActive(false);
 
     

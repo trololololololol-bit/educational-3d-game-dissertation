@@ -13,6 +13,12 @@ public class NPCInteractable : MonoBehaviour {
     public NPCConversation rejectedConversation;
     public NPCConversation completedConversation;
     
+    public NPCConversation activeConversation; 
+    public NPCConversation busyConversation; 
+    public NPCConversation thankYouDialogue;
+
+    [Header("Delivery")]
+    public bool hasReceivedCheese = false;
 
 
     public enum NPCRole
@@ -30,6 +36,7 @@ public class NPCInteractable : MonoBehaviour {
 
     public void Interact()
     {
+        
         switch (npcRole)
         {
             case NPCRole.FestivalDialogue:
@@ -60,9 +67,56 @@ public class NPCInteractable : MonoBehaviour {
         }
     }
 
-        void StartConversation()
+    bool IsNPCTaskActive()
     {
+      
+
+        switch (npcRole)
+        {
+            case NPCRole.DeliveryTask:
+                return GameManager.Instance.currentTask == GameManager.TaskType.Delivery;
+
+            case NPCRole.FishingTask:
+                return GameManager.Instance.currentTask == GameManager.TaskType.Fishing;
+
+            case NPCRole.DecorationTask:
+                return GameManager.Instance.currentTask == GameManager.TaskType.Decoration;
+
+            case NPCRole.RecallMiniGame:
+                return GameManager.Instance.currentTask == GameManager.TaskType.Recall;
+
+            case NPCRole.PrecisionMiniGame:
+                return GameManager.Instance.currentTask == GameManager.TaskType.Precision;
+        }
+
+    return false;
+    }
+
+
+
+
+
+        void StartConversation()
+        {
+     
         NPCConversation chosenConversation = normalConversation;
+
+        if (GameManager.Instance.currentTask != GameManager.TaskType.None)
+        {
+             if (IsNPCTaskActive())
+        {
+            if (activeConversation != null)
+                chosenConversation = activeConversation; // if it is teh npc's own task
+        }
+        else
+        {
+            
+            if (busyConversation != null)
+                chosenConversation = busyConversation; // if its another npc either busy or hungry
+        }}
+
+        
+
         // global
         if (GameManager.Instance.festivalSaturationLevel < 0.4f && sadConversation != null)
         {
@@ -115,6 +169,19 @@ public class NPCInteractable : MonoBehaviour {
             ConversationManager.OnConversationEnded += LockCursorAgain;
         
     }
+
+    public void StartThankYouDialogue()
+{
+    if (thankYouDialogue != null)
+    {
+        ConversationManager.Instance.StartConversation(thankYouDialogue);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        ConversationManager.OnConversationEnded += LockCursorAgain;
+    }
+}
 
     private void LockCursorAgain()
     {
