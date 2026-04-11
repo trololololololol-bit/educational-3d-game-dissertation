@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     public int decorationsCompleted = 0;
     public int totalDecorations = 6;
 
+    public int fishCaught = 0;
+    public int totalFish = 6;
+
 
     void Awake()
     {
@@ -63,6 +66,7 @@ public class GameManager : MonoBehaviour
         }
 
         currentTask = TaskType.Fishing;
+        FishingMiniGame.Instance.StartTask();
         Debug.Log("Fishing task started");
         
     }

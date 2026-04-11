@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DecoratingSpot : MonoBehaviour
@@ -18,16 +19,27 @@ public class DecoratingSpot : MonoBehaviour
     public void Decorate()
     {
         if (isDecorated) return;
+        StartCoroutine(DecorationSequence());
 
+
+    }
+
+    IEnumerator DecorationSequence()
+    {
+        //play ruffle effect
         if (audioSource != null && ruffleSound != null)
             audioSource.PlayOneShot(ruffleSound);
 
-        // sound delay
-        Invoke(nameof(ActivateDecorated), 0.3f);
+        //6s delay
+        yield return new WaitForSeconds(0.8f);
+
+        //swap prefabs
+        ActivateDecorated();
     }
 
     void ActivateDecorated()
     {
+        //pop sound
         if (audioSource != null && popSound != null)
             audioSource.PlayOneShot(popSound);
 
@@ -37,8 +49,7 @@ public class DecoratingSpot : MonoBehaviour
         if (decoratedLampostPrefab != null)
         {
             decoratedInst = Instantiate(decoratedLampostPrefab, undecoratedLampost.transform.position,
-            undecoratedLampost.transform.rotation,
-            undecoratedLampost.transform.parent);
+            undecoratedLampost.transform.rotation);
            
         }
 

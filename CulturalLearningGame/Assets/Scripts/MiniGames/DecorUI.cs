@@ -4,10 +4,17 @@ using TMPro;
 public class DecorUI : MonoBehaviour
 {
 
-    public TextMeshProUGUI decorCounterTxt;
+    
     public GameObject panel;
+    public TextMeshProUGUI decorCounterTxt;
+
+    void Start()
+    {
+        panel.SetActive(false);
+        }
         void Update()
     {
+        Debug.Log("DecorUI running");
         if(GameManager.Instance.currentTask == GameManager.TaskType.Decoration) 
         {
             panel.SetActive(true);
@@ -15,7 +22,7 @@ public class DecorUI : MonoBehaviour
             int total = GameManager.Instance.totalDecorations;
 
             if (curr < total) {
-                 decorCounterTxt.text = curr + "/" + total + "Decorated";
+                 decorCounterTxt.text = curr + " / " + total + " Decorated";
 
             } else
             {
