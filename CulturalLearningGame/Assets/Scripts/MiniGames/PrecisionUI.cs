@@ -12,6 +12,7 @@ public class PrecisionUI : MonoBehaviour
     public TextMeshProUGUI livesTXT;
     public Image darioImage;
     public TextMeshProUGUI textTxt;
+    public TextMeshProUGUI timerTxt;
     public TextMeshProUGUI attemptsTxt;
     public static PrecisionUI Instance;
     public Image foodDisplay;
@@ -61,8 +62,8 @@ public class PrecisionUI : MonoBehaviour
     public void StageTwo()
     {
         //cook
-        textTxt.text = "Dario: This is cooking stage. Try not to burn the food...";
-        attemptsTxt.text = "Chops: /5";
+        textTxt.text = "Dario: This is cooking stage. When the BLUE diamond reaches the safezone, flip the food. Try not to burn the food...";
+        
     }
     public void StageThree()
     {
@@ -96,5 +97,10 @@ public class PrecisionUI : MonoBehaviour
     {
         livesTXT.text = "Lives:" + currentLives;
     }
+
+    public void UpdateTimer(float timeLeft)
+    {
+        timerTxt.text = "Time Left:" + Mathf.CeilToInt(timeLeft);
+    } 
 
 }

@@ -8,14 +8,21 @@ public class PointerController : MonoBehaviour
 {
     public Transform pointA;
     public Transform pointB;
+    public RectTransform zonePointA;
+    public RectTransform zonePointB;
     public RectTransform safeZone;
     public float zoneSpeed =100f;
     public float zoneDirection = 1;
     public float moveSpeed = 200f;
+    public float zoneMoveSpeed = 200f;
+    public int cookGoal = 20;
+    public int cookProgress = 0;
 
     private float direction = 1f;
     private RectTransform pointerTransform;
     private Vector3 targetPos; 
+    private Vector2 zoneTargetPos; 
+    private float zonedirection = 1f;
     private int stage = 1;
     private int perRound = 0;
     private int maxPerRound = 5;
@@ -52,7 +59,7 @@ public class PointerController : MonoBehaviour
         PrecisionUI.Instance.ShowRawUnchopped(currentIngredient);
         Debug.Log("Ingredient" + (currentIngredient +1));
         PrecisionUI.Instance.StageOne();
-        PrecisionUI.Instance.UpdateProgress(perRound, maxPerRound);
+        
     }
 
     void Update()
@@ -61,11 +68,13 @@ public class PointerController : MonoBehaviour
         if(stage==2)
         {
             stageTimer += Time.deltaTime;
-            //PointerMovementHandler();
-            
+            PointerMovementHandler();
             RandomZoneHandler();
             CookingInputHandler();
-           
+            float timeLeft = stageDuration - stageTimer;
+            PrecisionUI.Instance.UpdateTimer(timeLeft);
+            PrecisionUI.Instance.UpdateLives(currentLives);
+            PrecisionUI.Instance.UpdateProgress(cookProgress, cookGoal);
 
             if(stageTimer>=stageDuration)
             {
@@ -105,7 +114,7 @@ public class PointerController : MonoBehaviour
         {
             Debug.Log("Success!");
             perRound ++;
-            moveSpeed +=60f;
+            moveSpeed +=180f;
             PrecisionUI.Instance.UpdateProgress(perRound, maxPerRound);
             PrecisionUI.Instance.UpdateLives(currentLives);
 
@@ -159,8 +168,10 @@ public class PointerController : MonoBehaviour
         currentLives = 3;
         
         stageTimer =  0f;
-        stageDuration =  30f;
-        moveSpeed = 250f;
+        stageDuration =  60f;
+        moveSpeed =200f;
+        zoneMoveSpeed = 250f;
+        zoneTargetPos = zonePointB.anchoredPosition;
         PrecisionUI.Instance.StageTwo();
     }
 
@@ -174,36 +185,65 @@ public class PointerController : MonoBehaviour
 
     void CookingInputHandler()
     {
+        if(!Keyboard.current.spaceKey.wasPressedThisFrame)return;
         if (RectTransformUtility.RectangleContainsScreenPoint(
         safeZone, pointerTransform.position, null))
     {
         Debug.Log("Cook success tick");
+        cookProgress++;
+        PrecisionUI.Instance.UpdateProgress(cookProgress, cookGoal);
+        if(cookProgress >= cookGoal)
+            {
+                CookingComplete();
+            }
+
     }
     else
     {
         currentLives--;
         PrecisionUI.Instance.UpdateLives(currentLives);
 
-        if (currentLives <= 0)
+        if (currentLives <= 0 || stageTimer <= stageDuration && cookProgress > cookGoal)
         {
             ResetStage();
+            return;
         }
     }
     }
 
     void RandomZoneHandler()
     {
-        safeZone.anchoredPosition += new Vector2(zoneSpeed * zoneDirection * Time.deltaTime, 0);
-
-    if (safeZone.anchoredPosition.x > 200)
-        zoneDirection = -1;
-
-    if (safeZone.anchoredPosition.x < -200)
-        zoneDirection = 1;
+         //moves safzone to target
+        safeZone.anchoredPosition = Vector2.MoveTowards(safeZone.anchoredPosition, zoneTargetPos, zoneMoveSpeed * Time.deltaTime);
+        //change dir if meets one of points 
+        // if dist between pointer and point a is less than 0.1f, change dir
+        if(Vector2.Distance(safeZone.anchoredPosition, zonePointA.anchoredPosition)<0.1f)
+        {
+            zoneTargetPos = zonePointB.anchoredPosition;
+            zonedirection = 1f;
+        } else if(Vector2.Distance(safeZone.anchoredPosition, zonePointB.anchoredPosition)<0.1f)
+        {
+            zoneTargetPos = zonePointA.anchoredPosition;
+            zonedirection = -1f;
+        }
     }
     void PointerMovementHandler()
     {
+        //moves pointer to target
+        pointerTransform.position = Vector3.MoveTowards(pointerTransform.position, targetPos, moveSpeed * Time.deltaTime);
+       
         
+        //change dir if meets one of points 
+        // if dist between pointer and point a is less than 0.1f, change dir
+        if(Vector3.Distance(pointerTransform.position, pointA.position)<0.1f)
+        {
+            targetPos = pointB.position;
+            direction = 1f;
+        } else if(Vector3.Distance(pointerTransform.position, pointB.position)<0.1f)
+        {
+            targetPos = pointA.position;
+            direction = -1f;
+        }
     }
 
     void CookingVisual()
@@ -248,6 +288,7 @@ public class PointerController : MonoBehaviour
          PrecisionUI.Instance.StageOne();
         } else if(stage == 2)
         {
+            StartCookingStage();
             PrecisionUI.Instance.StageTwo();
         } else if(stage ==3)
         {
