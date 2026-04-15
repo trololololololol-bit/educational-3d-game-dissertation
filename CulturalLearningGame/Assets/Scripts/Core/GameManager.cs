@@ -116,12 +116,7 @@ public class GameManager : MonoBehaviour
     public void StartPrecisionGame()
     {
 
-        if (PrecisionMiniGame.Instance == null)
-    {
-        Debug.LogError("PrecisionMiniGame Instance is NULL");
-        return;
-    }
-
+      
         if (currentTask != TaskType.None)
         {
         Debug.Log("Another task is already active");

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TaskUI : MonoBehaviour
@@ -11,7 +12,13 @@ public class TaskUI : MonoBehaviour
     public GameObject dinoTick;
 
     public GameObject taskPanel;
-    
+    public static TaskUI Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
 
     void Start()
     {
@@ -45,5 +52,15 @@ public class TaskUI : MonoBehaviour
 
         if(GameManager.Instance.precisionTaskComplete)
             dinoTick.SetActive(true);
+    }
+
+    public void TaskPanelFalse()
+    {
+        taskPanel.SetActive(false);
+    }
+
+    public void TaskPanelTrue()
+    {
+        taskPanel.SetActive(true);
     }
 }

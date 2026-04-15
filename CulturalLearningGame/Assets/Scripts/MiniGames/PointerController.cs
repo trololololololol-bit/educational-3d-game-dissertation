@@ -15,11 +15,12 @@ public class PointerController : MonoBehaviour
     public float zoneDirection = 1;
     public float moveSpeed = 200f;
     public float zoneMoveSpeed = 200f;
-    public int cookGoal = 20;
+    public int cookGoal = 30;
     public int cookProgress = 0;
 
     private float direction = 1f;
     private RectTransform pointerTransform;
+  
     private Vector3 targetPos; 
     private Vector2 zoneTargetPos; 
     private float zonedirection = 1f;
@@ -31,23 +32,92 @@ public class PointerController : MonoBehaviour
     private int maxLives = 3;
     private int currentLives = 3;
     public bool canClick =  true;
+    private int plateProgress = 0;
+    private int plateGoal = 10;
+ 
 
     private float stageTimer = 0f;
 
     private float stageDuration = 30f;
     private float zoneChangeTimer = 0f;
 
+    bool zoneActive = false;
+    float zoneTimer = 0f;
+    float zoneInterval = 2f;
+    float zoneDuration = 3f;
+
+
+    public AudioSource audioSource;
+    public AudioClip chopSound;
+    public AudioClip successDing;
+    public AudioClip failSound;
+    public AudioClip sizzle;
+    public AudioClip plate;
+    public AudioClip grate;
+
     void Start()
     {
         pointerTransform = GetComponent<RectTransform>();
         targetPos = pointB.position;
+        
+        
+        
     }
     void OnEnable()
     {
         stage = 1;
         currentIngredient = 0;
+        PrecisionUI.Instance.Blank();
         StartIngredient();
     }
+
+
+
+    void Update()
+    {
+        
+        if(stage==2)
+        {
+            stageTimer += Time.deltaTime;
+            PointerMovementHandler();
+            RandomZoneHandler();
+            CookingInputHandler();
+           
+            float timeLeft = stageDuration - stageTimer;
+            PrecisionUI.Instance.UpdateTimer(timeLeft);
+            PrecisionUI.Instance.UpdateLives(currentLives);
+            PrecisionUI.Instance.UpdateFlips(cookProgress, cookGoal);
+
+            if(stageTimer>=stageDuration)
+            {
+                CookingComplete();
+            }
+        }else if(stage ==3){
+            zoneTimer += Time.deltaTime;
+
+            if(!zoneActive && zoneTimer >= zoneInterval)
+                {
+                    ActivateZone();
+                }
+
+            if(zoneActive && zoneTimer >= zoneDuration)
+                {
+                    DeactivateZone();
+                }
+            PlateInputHandler();
+            ThreePointerHandler();
+        }else
+        {
+            MovePointer();
+        }
+
+         if(canClick && Keyboard.current.spaceKey.wasPressedThisFrame) {
+            CheckSuccess();
+            PlaySound(chopSound);
+        }
+    }
+
+    // STAGE 1 ---------------------------------------------------------------
 
     void StartIngredient()
     {
@@ -61,35 +131,6 @@ public class PointerController : MonoBehaviour
         PrecisionUI.Instance.StageOne();
         
     }
-
-    void Update()
-    {
-        
-        if(stage==2)
-        {
-            stageTimer += Time.deltaTime;
-            PointerMovementHandler();
-            RandomZoneHandler();
-            CookingInputHandler();
-            float timeLeft = stageDuration - stageTimer;
-            PrecisionUI.Instance.UpdateTimer(timeLeft);
-            PrecisionUI.Instance.UpdateLives(currentLives);
-            PrecisionUI.Instance.UpdateProgress(cookProgress, cookGoal);
-
-            if(stageTimer>=stageDuration)
-            {
-                CookingComplete();
-            }
-        }else
-        {
-            MovePointer();
-        }
-
-         if(canClick && Keyboard.current.spaceKey.wasPressedThisFrame) {
-            CheckSuccess();
-        }
-    }
-
     void MovePointer()
     {
          //moves pointer to target
@@ -117,6 +158,7 @@ public class PointerController : MonoBehaviour
             moveSpeed +=180f;
             PrecisionUI.Instance.UpdateProgress(perRound, maxPerRound);
             PrecisionUI.Instance.UpdateLives(currentLives);
+            
 
             if(perRound >= maxPerRound)
             {
@@ -125,11 +167,13 @@ public class PointerController : MonoBehaviour
         }else
             {
                 currentLives --;
+                PlaySound(failSound);
                 PrecisionUI.Instance.UpdateLives(currentLives);
                 PrecisionUI.Instance.FlashFail();
 
                 if(currentLives <= 0)
             {
+
                 RestartIngredient();
             }
             }
@@ -140,6 +184,7 @@ public class PointerController : MonoBehaviour
     {
         Debug.Log("Ingredient Complete");
         PrecisionUI.Instance.ShowChopped(currentIngredient);
+        PlaySound(successDing);
         Invoke("NextIngredient", 2f);
         canClick =  false;
         
@@ -151,17 +196,26 @@ public class PointerController : MonoBehaviour
         if (currentIngredient >= totalIngredients)
         {
             Debug.Log("Stage 1 completed");
-            NextStage();
+            Invoke("NextStage",2f);
+            
             return;
         }
-        StartIngredient();
+        Invoke("StartIngredient",2f);
     }
 
     void RestartIngredient()
     {
         Debug.Log("Restarting Ingredient");
-        StartIngredient();
+        currentIngredient =0;
+        currentLives =3;
+        PrecisionUI.Instance.TryAgain();
+        Invoke("StartIngredient",2f);
+        
     }
+
+
+
+    // STAGE 2 ---------------------------------------------------------------
 
     void StartCookingStage()
     {
@@ -171,16 +225,22 @@ public class PointerController : MonoBehaviour
         stageDuration =  60f;
         moveSpeed =200f;
         zoneMoveSpeed = 250f;
+        cookProgress = 0;
         zoneTargetPos = zonePointB.anchoredPosition;
         PrecisionUI.Instance.StageTwo();
+        PrecisionUI.Instance.UpdateFlips(cookProgress,cookGoal);
+         PrecisionUI.Instance.ShowCooked(0);
+         PlaySound(sizzle);
     }
 
 
     void CookingComplete()
     {
         Debug.Log("Cooking was successful");
-        //PrecisionUI.Instance.ShowCooked();
-        NextStage();
+        
+        PrecisionUI.Instance.ShowCooked(0);
+        PrecisionUI.Instance.OntoStageThree();
+        Invoke("NextStage", 3f);
     }
 
     void CookingInputHandler()
@@ -191,7 +251,9 @@ public class PointerController : MonoBehaviour
     {
         Debug.Log("Cook success tick");
         cookProgress++;
-        PrecisionUI.Instance.UpdateProgress(cookProgress, cookGoal);
+        //zoneMoveSpeed +=20f;
+        
+        PrecisionUI.Instance.UpdateFlips(cookProgress, cookGoal);
         if(cookProgress >= cookGoal)
             {
                 CookingComplete();
@@ -201,11 +263,22 @@ public class PointerController : MonoBehaviour
     else
     {
         currentLives--;
+        PlaySound(failSound);
+        PrecisionUI.Instance.FlashFail();
         PrecisionUI.Instance.UpdateLives(currentLives);
+        if(currentLives <=2) {
+                 PrecisionUI.Instance.ShowCooked(1);
+                 PrecisionUI.Instance.BurnWarn();
+// gain life possibility
+            }
 
         if (currentLives <= 0 || stageTimer <= stageDuration && cookProgress > cookGoal)
         {
-            ResetStage();
+            
+            PrecisionUI.Instance.ShowCooked(2);
+            PrecisionUI.Instance.BurnedText();
+            Invoke("ResetStage", 3f);
+    
             return;
         }
     }
@@ -221,6 +294,7 @@ public class PointerController : MonoBehaviour
         {
             zoneTargetPos = zonePointB.anchoredPosition;
             zonedirection = 1f;
+            
         } else if(Vector2.Distance(safeZone.anchoredPosition, zonePointB.anchoredPosition)<0.1f)
         {
             zoneTargetPos = zonePointA.anchoredPosition;
@@ -246,35 +320,149 @@ public class PointerController : MonoBehaviour
         }
     }
 
-    void CookingVisual()
+
+
+
+    
+    // STAGE 3 ---------------------------------------------------------------
+
+    void StartPlatingStage()
     {
-        if(currentLives > 1)
+        moveSpeed = 300f;
+        PrecisionUI.Instance.StageThree();
+        currentLives = 3;
+        plateProgress = 0;
+        plateGoal = 10;
+        zoneActive = false;
+        zoneTimer = 0f;
+        PrecisionUI.Instance.UpdateStageThreeUI(currentLives, plateProgress, plateGoal);
+       
+        
+    }
+
+    void ActivateZone()
+    {
+        zoneActive = true;
+        zoneTimer = 0f;
+        safeZone.gameObject.SetActive(true);
+        PlaySound(plate);
+        
+
+        float minSpot =zonePointA.anchoredPosition.x;
+        float maxSpot =zonePointB.anchoredPosition.x;
+        float randomSpot = Random.Range(minSpot, maxSpot);
+        safeZone.anchoredPosition = new Vector2(randomSpot, safeZone.anchoredPosition.y);
+
+        // rand width
+        float randWidth = Random.Range(80f,200f);
+        safeZone.sizeDelta = new Vector2(randWidth,safeZone.sizeDelta.y);
+    }
+
+    
+    void DeactivateZone()
+    {
+       
+        zoneActive = false;
+        zoneTimer = 0f;
+        safeZone.gameObject.SetActive(false);
+        zoneInterval = Random.Range(1f, 3f);
+    }
+
+    void ThreePointerHandler()
+    {
+        //moves pointer to target
+        moveSpeed = 350f;
+        pointerTransform.position = Vector3.MoveTowards(pointerTransform.position, targetPos, moveSpeed * Time.deltaTime);
+        
+        
+        //change dir if meets one of points 
+        // if dist between pointer and point a is less than 0.1f, change dir
+        if(Vector3.Distance(pointerTransform.position, pointA.position)<0.1f)
         {
-            //PrecisionUI.Instance.ShowCooked();
-        } else
+            targetPos = pointB.position;
+            direction = 1f;
+            
+        } else if(Vector3.Distance(pointerTransform.position, pointB.position)<0.1f)
         {
-            //PrecisionUI.Instance.ShowBurned();
+            targetPos = pointA.position;
+            direction = -1f;
         }
     }
 
+    void PlateInputHandler()
+    {
+        if(!Keyboard.current.spaceKey.wasPressedThisFrame) return;
+        
+            if(zoneActive && RectTransformUtility.RectangleContainsScreenPoint(
+             safeZone, pointerTransform.position, null))
+            {
+                plateProgress ++;
+                PlaySound(successDing);
+                PrecisionUI.Instance.UpdateStageThreeUI(currentLives,plateProgress, plateGoal);
+
+                if(plateProgress >=plateGoal)
+                {
+                    PrecisionUI.Instance.EndingTask();
+                    PlaySound(successDing);
+                    NextStage();
+                } 
+                DeactivateZone();
+            } else
+            {
+                currentLives --;
+                PrecisionUI.Instance.FlashFail();
+                PrecisionUI.Instance.UpdateLives(currentLives);
+                PlaySound(failSound);
+
+                if(currentLives <= 0 )
+                {
+                    PrecisionUI.Instance.TryAgain();
+                    Invoke("ResetStage",3f);
+                }
+            }
+        }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //---------------------------------------------------------------
 
 
     void NextStage()
     {
+        
         stage ++;
-      
         Debug.Log("stage" + stage);
 
+       
         if(stage == 2)
         {
+            
             StartCookingStage();
         } else if (stage == 3)
         {
-            PrecisionUI.Instance.StageThree();
-            //StartPlatingStage();
+            
+            StartPlatingStage();
         } else
         {
-            FinishGame();
+            Invoke("FinishGame",3f);
         }
     }
 
@@ -286,12 +474,15 @@ public class PointerController : MonoBehaviour
         if(stage ==1 ) 
         {
          PrecisionUI.Instance.StageOne();
+        
         } else if(stage == 2)
         {
             StartCookingStage();
-            PrecisionUI.Instance.StageTwo();
+            
+
         } else if(stage ==3)
         {
+            StartPlatingStage();
             PrecisionUI.Instance.StageThree();
         }
 
@@ -300,7 +491,17 @@ public class PointerController : MonoBehaviour
    
     void FinishGame()
     {
+
+        PrecisionMiniGame.Instance.EndTask();
+        PrecisionMiniGame.Instance.CompleteTask();
         Debug.Log("Dish created");
+
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+    audioSource.pitch = Random.Range(0.95f, 1.05f);
+    audioSource.PlayOneShot(clip);
     }
 
 

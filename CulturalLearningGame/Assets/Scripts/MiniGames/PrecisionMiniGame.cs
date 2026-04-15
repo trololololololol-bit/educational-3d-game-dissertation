@@ -5,6 +5,9 @@ public class PrecisionMiniGame : MonoBehaviour
     public bool taskActive = false;
     public static PrecisionMiniGame Instance;
     public PointerController pointer;
+    
+
+
     void Awake()
     {
         Instance = this;
@@ -23,6 +26,7 @@ public class PrecisionMiniGame : MonoBehaviour
     {
         taskActive = false;
         Debug.Log("Precision mini-game ended!");
+        PrecisionUI.Instance.HideUI();
     }
 
      public void CompleteTask()
@@ -30,6 +34,7 @@ public class PrecisionMiniGame : MonoBehaviour
         GameManager.Instance.precisionTaskComplete = true;
         GameManager.Instance.currentTask = GameManager.TaskType.None;
         Debug.Log("Precision Game complete!");
+        TaskUI.Instance.TaskPanelFalse();
         EndTask();
     }
 
