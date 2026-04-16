@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Fishing task started");
         
     }
-
+ 
     public void StartDecorationTask()
     {
         if (currentTask != TaskType.None)

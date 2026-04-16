@@ -44,7 +44,7 @@ public class PointerController : MonoBehaviour
     bool zoneActive = false;
     float zoneTimer = 0f;
     float zoneInterval = 2f;
-    float zoneDuration = 3f;
+    float zoneDuration = 1f;
 
 
     public AudioSource audioSource;
@@ -272,7 +272,7 @@ public class PointerController : MonoBehaviour
 // gain life possibility
             }
 
-        if (currentLives <= 0 || stageTimer <= stageDuration && cookProgress > cookGoal)
+        if (currentLives <= 0 || cookProgress > cookGoal)
         {
             
             PrecisionUI.Instance.ShowCooked(2);
@@ -365,7 +365,7 @@ public class PointerController : MonoBehaviour
         zoneActive = false;
         zoneTimer = 0f;
         safeZone.gameObject.SetActive(false);
-        zoneInterval = Random.Range(1f, 3f);
+        zoneInterval = Random.Range(0.5f, 3f);
     }
 
     void ThreePointerHandler()
@@ -392,6 +392,8 @@ public class PointerController : MonoBehaviour
     void PlateInputHandler()
     {
         if(!Keyboard.current.spaceKey.wasPressedThisFrame) return;
+        if(!zoneActive) return;
+        
         
             if(zoneActive && RectTransformUtility.RectangleContainsScreenPoint(
              safeZone, pointerTransform.position, null))

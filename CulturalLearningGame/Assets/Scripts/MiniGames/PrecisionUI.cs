@@ -90,8 +90,8 @@ public class PrecisionUI : MonoBehaviour
     public void StageThree()
     {
         //serve 
-        textTxt.text = "Dario: This is serving stage. Top the palenta cake with some tomato, basil, and fresh mozerella. Make the food look as presentable as possible...";
-        attemptsTxt.text = "Chops: /5";
+        textTxt.text = "Dario: This is serving stage. Top the palenta cake with some tomato, basil, and fresh mozerella. Remember, timing and accuracy are everything...";
+        
     }
 
     public void UpdateProgress(int current, int max)
