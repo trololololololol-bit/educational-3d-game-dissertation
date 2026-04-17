@@ -44,7 +44,7 @@ public class NPCInteractable : MonoBehaviour {
                 break;
 
             case NPCRole.RecallMiniGame:
-                StartConversation();
+                Recall();
                 Debug.Log("Start recall mini game");
                 break;
 
@@ -189,6 +189,18 @@ public class NPCInteractable : MonoBehaviour {
         Cursor.visible = false;
 
         ConversationManager.OnConversationEnded -= LockCursorAgain;
+    }
+
+    public void Recall()
+    {
+            StartConversation();
+            ConversationManager.OnConversationEnded += StartRecall;
+    }
+
+    public void StartRecall()
+    {
+        ConversationManager.OnConversationEnded -= StartRecall;
+        GameManager.Instance.StartRecallGame();
     }
 
    

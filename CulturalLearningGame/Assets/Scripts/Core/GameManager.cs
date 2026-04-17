@@ -102,15 +102,13 @@ public class GameManager : MonoBehaviour
     public void StartRecallGame()
     {
 
-        if (currentTask != TaskType.None)
-        {
-        Debug.Log("Another task is already active");
-        return;
-        }
+        Debug.Log("Current task before starting: " + currentTask);
+
+        currentTask = TaskType.None;
 
         currentTask = TaskType.Recall;
         Debug.Log("Recall game started");
-        //RecallMiniGame.Instance.StartTask();
+        RecallMiniGame.Instance.StartTask();
     }
 
     public void StartPrecisionGame()
