@@ -14,6 +14,7 @@ public class RecallUI : MonoBehaviour
     public UnityEngine.UI.Image simonSaysPanel;
    
     public TextMeshProUGUI darioText;
+    public TextMeshProUGUI counterText;
     public GameObject counterPanel;
     public int buttonCount => buttons.Length;
     public Color highlightColor = Color.blue;
@@ -24,6 +25,7 @@ public class RecallUI : MonoBehaviour
     public void Start()
     {
         HideUI();
+        
         
     }
     
@@ -49,12 +51,12 @@ public class RecallUI : MonoBehaviour
 
     public void FailText()
     {
-        darioText.text ="Dario:";
+        darioText.text ="Dario: No, no, no. That's not how we do it. Lets try again.";
     }
 
     public void WinText()
     {
-        darioText.text ="Dario:";
+        darioText.text = "Dario: Perfetto! Just like tradition.";
     }
 
     public void HideUI()

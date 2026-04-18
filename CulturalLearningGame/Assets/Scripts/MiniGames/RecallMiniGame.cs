@@ -9,7 +9,7 @@ using System.Collections;
 public class RecallMiniGame : MonoBehaviour
 {
     public RecallUI ui;
-    private int totalRounds = 6;
+    private int totalRounds = 7;
     private int round = 0;
     public MonoBehaviour playerController;
 
@@ -21,11 +21,25 @@ public class RecallMiniGame : MonoBehaviour
     public bool taskActive = false;
     public static RecallMiniGame Instance;
     bool isPlaying = false;
+    public AudioSource audioSource;
+    public AudioClip failSound;
+    public AudioClip correctSequence;
+    public AudioClip winSound;
+    private float speed = 0.9f;
+    private float highlightTime = 0.8f;
+    private float pauseTime = 0.4f; 
 
     void Awake()
     {
         Instance = this;
     }
+
+    void PlaySound(AudioClip clip)
+    {
+    audioSource.pitch = Random.Range(0.95f, 1.05f);
+    audioSource.PlayOneShot(clip);
+    }
+
     
 
     public void StartTask()
@@ -35,6 +49,7 @@ public class RecallMiniGame : MonoBehaviour
         Debug.Log("Recall mini-game started!");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        
         StartGame();
         
     }
@@ -44,7 +59,10 @@ public class RecallMiniGame : MonoBehaviour
        
         round =1; 
         sequence.Clear();
+        ui.counterText.text = "Rounds: " + round + "/7";
         ui.darioText.text = "Dario: Help me make some bruschetta.";
+        highlightTime = 0.8f;
+        pauseTime = 0.4f; 
         AddToSequence();
         
         
@@ -54,9 +72,17 @@ public class RecallMiniGame : MonoBehaviour
 
     void AddToSequence()
     {
+        if(isPlaying) return; 
         int random = Random.Range(0, ui.buttonCount);
         sequence.Add(random);
-        ui.darioText.text = "Dario: Okay. Add some " + ingredients[random];
+        string line = "Dario: ";
+
+        foreach (int i in sequence)
+        {
+            line += ingredients[i] + "... ";
+        }
+
+        ui.darioText.text = line;
         StartCoroutine(PlaySequence());
     }
 
@@ -68,12 +94,14 @@ public class RecallMiniGame : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         foreach(int index in new List<int>(sequence)) {
             ui.HighlightButton(index);
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(highlightTime);
             ui.ResetButton(index);
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(pauseTime);
         } 
-        canClick = true;
+        
         currInput = 0;
+        yield return new WaitForSeconds(0.1f);
+        canClick = true;
         isPlaying = false;
     }
 
@@ -85,17 +113,21 @@ public class RecallMiniGame : MonoBehaviour
         if(index == sequence[currInput])
         {
             currInput++;
+            PlaySound(correctSequence);
             Debug.Log("Clicked: " + index);
+            
         
         if(currInput >= sequence.Count)
         {
             canClick = false;
+            PlaySound(winSound);
             RoundComplete();
         }}
         else
         {
             canClick = false;
             ui.FlashFail();
+            PlaySound(failSound);
             Fail();
         }
 
@@ -110,13 +142,16 @@ public class RecallMiniGame : MonoBehaviour
     public void RoundComplete()
     {
         round ++;
+        ui.counterText.text = "Rounds: " + round + "/7";
+        highlightTime = highlightTime * speed;
+        pauseTime = pauseTime * speed;
         if(round > totalRounds)
         {
             WinGame();
             ui.FlashGood();
         } else
         {
-            Invoke("AddToSequence", 0.5f);
+            StartCoroutine(NextRoundTransition());
         }
     }
 
@@ -140,7 +175,7 @@ public class RecallMiniGame : MonoBehaviour
     {
         taskActive = false;
         Debug.Log("Recall mini-game ended!");
-        playerController.enabled = false;
+        playerController.enabled = true;
         ui.HideUI();
         
     }
@@ -154,10 +189,13 @@ public class RecallMiniGame : MonoBehaviour
         EndTask();
     }
 
-    void ListIngredient(int index)
-{
-    ui.darioText.text = "Dario: Remember " + ingredients[index];
-}
+    IEnumerator NextRoundTransition()
+    {
+        yield return new WaitForSeconds(0.5f);
+        AddToSequence();
+    }
+
+
 
 
 }

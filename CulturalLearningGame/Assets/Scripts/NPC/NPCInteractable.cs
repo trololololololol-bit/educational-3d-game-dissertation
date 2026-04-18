@@ -132,9 +132,11 @@ public class NPCInteractable : MonoBehaviour {
 
             if (GameManager.Instance.fishingTaskComplete && completedConversation != null)
                 chosenConversation = completedConversation;
+                
 
             else if (GameManager.Instance.fishingTaskRejected && rejectedConversation != null)
                 chosenConversation = rejectedConversation;
+                
 
             break;
 
@@ -202,6 +204,8 @@ public class NPCInteractable : MonoBehaviour {
         ConversationManager.OnConversationEnded -= StartRecall;
         GameManager.Instance.StartRecallGame();
     }
+
+   
 
    
 }

@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("Tasks")]
-    public float festivalSaturationLevel = 1f;
+    public float festivalSaturationLevel = 0f;
     public bool deliveryTaskComplete;
     public bool fishingTaskComplete;
     public bool decorationTaskComplete;
@@ -133,6 +133,18 @@ public class GameManager : MonoBehaviour
         Debug.Log("Festival gets worse...Darker...");
 
     
+    }
+
+     public void TaskCompleted()
+    {
+        festivalSaturationLevel +=0.2f;
+        festivalSaturationLevel = Mathf.Clamp01(festivalSaturationLevel); //between 0&1
+    }
+
+    public void TaskRejected()
+    {
+        festivalSaturationLevel -=0.2f;
+        festivalSaturationLevel = Mathf.Clamp01(festivalSaturationLevel);
     }
 
 }
