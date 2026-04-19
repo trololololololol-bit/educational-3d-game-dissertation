@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 8f;
     private bool isWalking;
+    private float introSpeed = 4f;
+    private bool isIntro = false;
 
 
     private void Update() { // runs code on every single frame

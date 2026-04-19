@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DialogueEditor;
+using UnityEngine.SceneManagement;
 
 
 public class NPCInteractable : MonoBehaviour {
@@ -158,9 +159,17 @@ public class NPCInteractable : MonoBehaviour {
             break;
         }
 
+       
+
 
 
         // start convo
+        if (GameManager.Instance.allTasksComplete() && completedConversation != null)
+            {
+            chosenConversation = completedConversation;
+            }
+        
+    
 
         
             ConversationManager.Instance.StartConversation(chosenConversation);
@@ -168,9 +177,9 @@ public class NPCInteractable : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            ConversationManager.OnConversationEnded += LockCursorAgain;
-        
-    }
+            ConversationManager.OnConversationEnded += LockCursorAgain;}
+
+             
 
     public void StartThankYouDialogue()
 {
@@ -203,6 +212,30 @@ public class NPCInteractable : MonoBehaviour {
     {
         ConversationManager.OnConversationEnded -= StartRecall;
         GameManager.Instance.StartRecallGame();
+    }
+
+    public void FinalConversation()
+    {
+        if (completedConversation != null)
+    {
+        ConversationManager.Instance.StartConversation(completedConversation);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        ConversationManager.OnConversationEnded += OnFinalConvoEnded;
+    }
+    }
+
+    public void LoadFinalScene()
+    {
+        SceneManager.LoadScene("FinalScene");
+    }
+
+    public void OnFinalConvoEnded()
+    {
+        ConversationManager.OnConversationEnded -= OnFinalConvoEnded;
+        LoadFinalScene();
     }
 
    

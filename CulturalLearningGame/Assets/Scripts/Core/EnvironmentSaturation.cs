@@ -24,7 +24,7 @@ public class EnvironmentSaturation : MonoBehaviour
     }
 
     void ApplySaturation(float sat)
-    {// 0 = 80, 1=20
-        colourAdjustments.saturation.value = Mathf.Lerp(-80f, 20f, sat);
+    {// 0 = 80, 1=5
+        colourAdjustments.saturation.value = Mathf.Lerp(-80f, 5f, sat);
     }
 }

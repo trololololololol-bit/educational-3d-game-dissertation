@@ -17,6 +17,16 @@ public class GameManager : MonoBehaviour
     public bool fishingTaskRejected;
     public bool decorationTaskRejected;
     public bool deliveryTaskRejected;
+
+    public bool allTasksComplete()
+    {
+        return precisionTaskComplete &&
+        recallTaskComplete &&
+        fishingTaskComplete &&
+        deliveryTaskComplete &&
+        decorationTaskComplete;
+    }
+    private NPCInteractable NPCI;
     
 
 
@@ -147,4 +157,5 @@ public class GameManager : MonoBehaviour
         festivalSaturationLevel = Mathf.Clamp01(festivalSaturationLevel);
     }
 
+   
 }
