@@ -95,37 +95,19 @@ public class NPCInteractable : MonoBehaviour {
 
 
 
-
-
         void StartConversation()
         {
      
         NPCConversation chosenConversation = normalConversation;
-
-        if (GameManager.Instance.currentTask != GameManager.TaskType.None)
-        {
-             if (IsNPCTaskActive())
-        {
-            if (activeConversation != null)
-                chosenConversation = activeConversation; // if it is teh npc's own task
-        }
-        else
-        {
-            
-            if (busyConversation != null)
-                chosenConversation = busyConversation; // if its another npc either busy or hungry
-        }}
-
-        
-
-        // global
-        if (GameManager.Instance.festivalSaturationLevel < 0.4f && sadConversation != null)
-        {
-        chosenConversation = sadConversation;
-        }
         
 
         // role specific
+
+        if (GameManager.Instance.allTasksComplete() && completedConversation != null)
+            {
+            chosenConversation = completedConversation;
+            } else {
+        
 
         switch (npcRole)
         {
@@ -157,27 +139,56 @@ public class NPCInteractable : MonoBehaviour {
                 chosenConversation = rejectedConversation;
 
             break;
-        }
+
+
+        case NPCRole.RecallMiniGame:
+            if (GameManager.Instance.recallTaskComplete && completedConversation != null)
+                chosenConversation = completedConversation;
+            else if (GameManager.Instance.recallTaskRejected && rejectedConversation != null)
+                chosenConversation = rejectedConversation;
+            break;
+
+        case NPCRole.PrecisionMiniGame:
+            if (GameManager.Instance.precisionTaskComplete && completedConversation != null)
+                chosenConversation = completedConversation;
+            else if (GameManager.Instance.precisionTaskRejected && rejectedConversation != null)
+                chosenConversation = rejectedConversation;
+            break;
+        }}
+
+        //task state
+          if (GameManager.Instance.currentTask != GameManager.TaskType.None)
+        {
+             if (IsNPCTaskActive())
+            {
+            if (activeConversation != null)
+                chosenConversation = activeConversation; // if it is teh npc's own task
+             }
+            else
+            {
+            
+            if (busyConversation != null)
+                chosenConversation = busyConversation; // if its another npc either busy or hungry
+        }}
+
+        // global
+        if (GameManager.Instance.festivalSaturationLevel < 0.4f && sadConversation != null)
+            {
+            chosenConversation = sadConversation;
+            }
 
        
-
-
-
+        
         // start convo
-        if (GameManager.Instance.allTasksComplete() && completedConversation != null)
-            {
-            chosenConversation = completedConversation;
-            }
         
     
-
-        
             ConversationManager.Instance.StartConversation(chosenConversation);
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            ConversationManager.OnConversationEnded += LockCursorAgain;}
+            ConversationManager.OnConversationEnded += LockCursorAgain;
+            }
 
              
 

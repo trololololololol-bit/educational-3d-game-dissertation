@@ -63,7 +63,7 @@ public class RecallMiniGame : MonoBehaviour
         ui.darioText.text = "Dario: Help me make some bruschetta.";
         highlightTime = 0.8f;
         pauseTime = 0.4f; 
-        AddToSequence();
+        StartCoroutine(NextRoundTransition());
         
         
     }

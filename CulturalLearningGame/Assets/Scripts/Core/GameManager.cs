@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public bool fishingTaskRejected;
     public bool decorationTaskRejected;
     public bool deliveryTaskRejected;
+    public bool precisionTaskRejected;
+    public bool recallTaskRejected;
 
     public bool allTasksComplete()
     {
@@ -80,6 +82,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Fishing task started");
         
     }
+
  
     public void StartDecorationTask()
     {

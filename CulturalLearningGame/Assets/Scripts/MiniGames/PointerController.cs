@@ -251,7 +251,7 @@ public class PointerController : MonoBehaviour
     {
         Debug.Log("Cook success tick");
         cookProgress++;
-        //zoneMoveSpeed +=20f;
+        zoneMoveSpeed +=15f;
         
         PrecisionUI.Instance.UpdateFlips(cookProgress, cookGoal);
         if(cookProgress >= cookGoal)
