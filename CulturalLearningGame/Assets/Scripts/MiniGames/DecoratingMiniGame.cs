@@ -6,9 +6,10 @@ using UnityEngine.InputSystem;
 public class DecoratingMiniGame : MonoBehaviour
 {
    public bool taskActive = false;
-   public static DecoratingMiniGame Instance;
    public Transform playerTransform;
-
+   
+   public static DecoratingMiniGame Instance;
+   
       void Awake()
     {
         Instance = this;

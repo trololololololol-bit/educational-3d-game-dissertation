@@ -1,6 +1,9 @@
+using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 
 public class Player : MonoBehaviour
@@ -11,11 +14,12 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 8f;
     private bool isWalking;
-    private float introSpeed = 4f;
-    private bool isIntro = false;
-
+    private bool canWalk = true;
 
     private void Update() { // runs code on every single frame
+        if(!canWalk) return;
+      
+       
         Vector2 inputVector = new Vector2(0,0);
 
         if (Keyboard.current.wKey.isPressed){
@@ -46,7 +50,8 @@ public class Player : MonoBehaviour
         float playerHeight = 2f;
         float moveDistance = moveSpeed * Time.deltaTime;
 
-        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDir, moveDistance);
+        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDir, moveDistance,Physics.AllLayers,
+        QueryTriggerInteraction.Ignore);
 
         if (canMove) {
         transform.position += moveDir * moveDistance;
@@ -70,6 +75,16 @@ public class Player : MonoBehaviour
 
     public bool IsWalking() {
         return isWalking;
+    }
+
+    public void StopMoving()
+    {
+        canWalk = false;
+    }
+
+     public void StartMovingAgain()
+    {
+        canWalk = true;
     }
 }
 

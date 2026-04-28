@@ -5,10 +5,12 @@ public class MessageUI : MonoBehaviour
 {
     public GameObject textPanel;
     public TextMeshProUGUI messageText;
+    public Player player;
     
     void Start()
     {
         ShowMessage("Hey Sibling.");
+        player.StopMoving();
     }
 
     public void ShowMessage(string message)
@@ -17,9 +19,10 @@ public class MessageUI : MonoBehaviour
         messageText.text = message; 
     }
 
-    public void RemoveMessage()
+    private void OnDisable()
     {
-        textPanel.SetActive(false);
+       
+        player.StartMovingAgain();
     }
 }
 
