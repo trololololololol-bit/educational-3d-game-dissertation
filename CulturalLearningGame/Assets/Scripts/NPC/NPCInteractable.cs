@@ -135,8 +135,11 @@ public class NPCInteractable : MonoBehaviour {
 
             if (GameManager.Instance.deliveryTaskComplete && completedConversation != null)
                 chosenConversation = completedConversation;
+                
+               
             else if (GameManager.Instance.deliveryTaskRejected && rejectedConversation != null)
                 chosenConversation = rejectedConversation;
+                
 
             break;
 
@@ -172,10 +175,12 @@ public class NPCInteractable : MonoBehaviour {
         }}
 
         // global
+        if(chosenConversation == normalConversation) {
         if (GameManager.Instance.festivalSaturationLevel < 0.4f && sadConversation != null)
             {
             chosenConversation = sadConversation;
             }
+        }
 
        
         

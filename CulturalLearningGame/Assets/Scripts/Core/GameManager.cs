@@ -160,5 +160,46 @@ public class GameManager : MonoBehaviour
         festivalSaturationLevel = Mathf.Clamp01(festivalSaturationLevel);
     }
 
+    public void RejectDelivery()
+    {
+        deliveryTaskRejected = true;
+        TaskRejected();
+        currentTask = TaskType.None;
+        Debug.Log("Delivery task has been rejected.");
+    }
+
+
+    public void RejectDecoration()
+    {
+        decorationTaskRejected = true;
+        TaskRejected();
+        currentTask = TaskType.None;
+        Debug.Log("Decoration task has been rejected.");
+    }
+
+    public void RejectRecall()
+    {
+        recallTaskRejected = true;
+        TaskRejected();
+        currentTask = TaskType.None;
+        Debug.Log("Recall task has been rejected.");
+    }
+
+    public void RejectFishing()
+    {
+        fishingTaskRejected = true;
+        TaskRejected();
+        currentTask = TaskType.None;
+        Debug.Log("Fishing task has been rejected.");
+    }
+
+    public void RejectPrecision()
+    {
+        precisionTaskRejected = true;
+        TaskRejected();
+        currentTask = TaskType.None;
+        Debug.Log("Precision task has been rejected.");
+    }
+
    
 }
