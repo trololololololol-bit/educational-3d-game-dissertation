@@ -1,8 +1,7 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.Rendering;
 using TMPro;
-using UnityEditor.ShaderGraph;
+
 
 public class FishingSpot : MonoBehaviour
 {
