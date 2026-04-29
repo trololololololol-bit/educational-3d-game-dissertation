@@ -247,6 +247,7 @@ public class NPCInteractable : MonoBehaviour {
 
     public void LoadFinalScene()
     {
+        Debug.Log("Loading FinalScene");
         SceneManager.LoadScene("FinalScene");
     }
 
