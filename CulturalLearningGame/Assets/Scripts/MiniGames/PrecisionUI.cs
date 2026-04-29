@@ -63,34 +63,34 @@ public class PrecisionUI : MonoBehaviour
     public void StageOne()
     {
         //prep
-        textTxt.text = "Dario: This is the prep stage. Using your SPACEBAR, please help me chop these ingredients: Garlic, Herbs, Cheese...";
+        textTxt.text = "Dino: This is the prep stage. Using your SPACEBAR, please help me chop these ingredients: Garlic, Herbs, Cheese...";
         
         
     }
     public void StageTwo()
     {
         //cook
-        textTxt.text = "Dario: This is cooking stage. When the BLUE diamond reaches the safezone, flip the food. Try not to burn the food...";
+        textTxt.text = "Dino: This is cooking stage. When the BLUE diamond reaches the safezone, flip the food. Try not to burn the food...";
         
     }
 
      public void BurnWarn()
     {
         //cook
-        textTxt.text = "Dario: Careful! It's Burning!";
+        textTxt.text = "Dino:Careful! It's Burning!";
         
     }
 
      public void BurnedText()
     {
         //cook
-        textTxt.text = "Dario: Oh no! It burned. Why don't you start over...";
+        textTxt.text = "Dino: Oh no! It burned. Why don't you start over...";
         
     }
     public void StageThree()
     {
         //serve 
-        textTxt.text = "Dario: This is serving stage. Top the palenta cake with some tomato, basil, and fresh mozerella. Remember, timing and accuracy are everything...";
+        textTxt.text = "Dino: This is serving stage. Top the palenta cake with some tomato, basil, and fresh mozerella. Remember, timing and accuracy are everything...";
         
     }
 
@@ -149,7 +149,7 @@ public class PrecisionUI : MonoBehaviour
         attemptsTxt.text = "";
         timerTxt.text= "";
         livesTXT.text = "";
-        textTxt.text = "Dario: Good Job. Now lets plate the food.";
+        textTxt.text = "Dino: Good Job. Now lets plate the food.";
 
     }
 
@@ -158,7 +158,7 @@ public class PrecisionUI : MonoBehaviour
         attemptsTxt.text = "";
         timerTxt.text= "";
         livesTXT.text = "";
-        textTxt.text = "Dario: Well done.";
+        textTxt.text = "Dino: Well done.";
 
     }
 
@@ -167,7 +167,7 @@ public class PrecisionUI : MonoBehaviour
         attemptsTxt.text = "";
         timerTxt.text= "";
         livesTXT.text = "";
-        textTxt.text = "Dario: Lets try that again.";
+        textTxt.text = "Dino: Lets try that again.";
 
     }
 
@@ -176,7 +176,7 @@ public class PrecisionUI : MonoBehaviour
         attemptsTxt.text = "";
         timerTxt.text= "";
         livesTXT.text = "";
-        textTxt.text = "Dario: Welcome to my kitchen.";
+        textTxt.text = "Dino: Welcome to my kitchen.";
 
     }
 

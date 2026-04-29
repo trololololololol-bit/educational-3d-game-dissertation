@@ -9,7 +9,7 @@ public class MessageUI : MonoBehaviour
     
     void Start()
     {
-        ShowMessage("Hey Sibling.");
+        ShowMessage("Text Message from Sibling: Hey! Don't forget to gather the best recipes you can for our restaurant opening! Learn some useful skills and make a good impression. Understand what makes their food and culture special.");
         player.StopMoving();
     }
 

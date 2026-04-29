@@ -22,7 +22,6 @@ public class EnvironmentSaturation : MonoBehaviour
         float sat = GameManager.Instance.festivalSaturationLevel;
         ApplySaturation(sat);
     }
-
     void ApplySaturation(float sat)
     {// 0 = 80, 1=5
         colourAdjustments.saturation.value = Mathf.Lerp(-80f, 5f, sat);

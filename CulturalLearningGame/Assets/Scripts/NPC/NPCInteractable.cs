@@ -215,8 +215,10 @@ public class NPCInteractable : MonoBehaviour {
 
     public void Recall()
     {
+            ConversationManager.OnConversationEnded -= StartRecall;
             StartConversation();
             ConversationManager.OnConversationEnded += StartRecall;
+            
     }
 
     public void StartRecall()

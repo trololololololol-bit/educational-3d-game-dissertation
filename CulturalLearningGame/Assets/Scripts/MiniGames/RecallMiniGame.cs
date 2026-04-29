@@ -49,6 +49,7 @@ public class RecallMiniGame : MonoBehaviour
         Debug.Log("Recall mini-game started!");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        TaskUI.Instance.TaskPanelFalse();
         
         StartGame();
         
@@ -185,7 +186,7 @@ public class RecallMiniGame : MonoBehaviour
         GameManager.Instance.recallTaskComplete = true;
         GameManager.Instance.currentTask = GameManager.TaskType.None;
         Debug.Log("Recall Game complete!");
-        TaskUI.Instance.TaskPanelFalse();
+        TaskUI.Instance.TaskPanelTrue();
         EndTask();
     }
 
