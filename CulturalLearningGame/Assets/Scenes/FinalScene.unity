@@ -639,7 +639,7 @@ MonoBehaviour:
   rawIngredients:
   - {fileID: 21300000, guid: 4b779f8cb6f00934598eb3168ec34600, type: 3}
   - {fileID: 21300000, guid: 9ddeb327619d5914da5a3f4f93a478c0, type: 3}
-  - {fileID: 21300000, guid: 0c267d2c0138c5746b6b4d8bc87a8fc0, type: 3}
+  - {fileID: 21300000, guid: 64859d15edbcdc44486bb50ba1bd6383, type: 3}
   choppedIngredients:
   - {fileID: 21300000, guid: ef09efb1375195443809a842407c5520, type: 3}
   - {fileID: 21300000, guid: 4725fcb6de686a041ae60d5c34bc898b, type: 3}
