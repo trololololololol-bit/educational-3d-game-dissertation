@@ -22,6 +22,7 @@ public class PrecisionUI : MonoBehaviour
     public Sprite[] cookBurn;
     public Sprite[] rawIngredients;
     public Sprite[] choppedIngredients;
+    public Sprite[] plate;
 
     void Awake()
     {
@@ -122,6 +123,11 @@ public class PrecisionUI : MonoBehaviour
     public void ShowRawUnchopped(int IngredientIndex)
     {
         foodDisplay.sprite = rawIngredients[IngredientIndex];
+    }
+
+    public void ShowPlate(int IngredientIndex)
+    {
+        foodDisplay.sprite = plate[IngredientIndex];
     }
 
      public void UpdateLives(int currentLives)

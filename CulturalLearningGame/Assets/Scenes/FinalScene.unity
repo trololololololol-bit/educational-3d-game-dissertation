@@ -644,6 +644,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ef09efb1375195443809a842407c5520, type: 3}
   - {fileID: 21300000, guid: 4725fcb6de686a041ae60d5c34bc898b, type: 3}
   - {fileID: 21300000, guid: 279666e4bb57ac041a14ce48149fd2cc, type: 3}
+  plate: []
 --- !u!1001 &49399806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2139,49 +2140,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueEditor.NPCConversation
-  CurrentIDCounter: 40
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":-789,"yPos":-308},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Blame
-    Dino. Support tradition.","parentUIDs":[12],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":-571,"yPos":-267},"ID":14,"ParamActions":[],"TMPFontGUID":null,"Text":"Blame
-    Dario. Support change.","parentUIDs":[12],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":16}],"EditorInfo":{"isRoot":false,"xPos":-894,"yPos":-160},"ID":15,"ParamActions":[],"TMPFontGUID":null,"Text":"Ask
-    them to explain why it matters. ","parentUIDs":[12],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":-577,"yPos":44},"ID":21,"ParamActions":[],"TMPFontGUID":null,"Text":"Blame
-    Dino.","parentUIDs":[20],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":-458,"yPos":145},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"Blame
-    Dario","parentUIDs":[20],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":false,"xPos":-165,"yPos":-13},"ID":23,"ParamActions":[],"TMPFontGUID":null,"Text":"I
-    have an idea.","parentUIDs":[20],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":876,"yPos":563},"ID":39,"ParamActions":[],"TMPFontGUID":null,"Text":"Go
-    to festival fireworks. ","parentUIDs":[38],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":-1135,"yPos":-570},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"So...I
-    think its time that you both have a conversation with eachother.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":-923,"yPos":-570},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"I
-    guess you''re right...","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":-711,"yPos":-568},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Yes.
-    Sure...","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":-1161,"yPos":-458},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"The
-    brothers look at eachother neither wanting to talk first.","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":null,"OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":-948,"yPos":-452},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok
-    Dario why don''t you start.","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":-714,"yPos":-454},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"I
-    just don''t understand why you want to change things after so many years.","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":-494,"yPos":-435},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+  CurrentIDCounter: 42
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":41}],"EditorInfo":{"isRoot":false,"xPos":281,"yPos":284},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Blame
+    Dino. Support tradition.","parentUIDs":[12],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":40}],"EditorInfo":{"isRoot":false,"xPos":499,"yPos":325},"ID":14,"ParamActions":[],"TMPFontGUID":null,"Text":"Blame
+    Dario. Support change.","parentUIDs":[12],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":16}],"EditorInfo":{"isRoot":false,"xPos":176,"yPos":432},"ID":15,"ParamActions":[],"TMPFontGUID":null,"Text":"Ask
+    them to explain why it matters. ","parentUIDs":[12],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":493,"yPos":636},"ID":21,"ParamActions":[],"TMPFontGUID":null,"Text":"Blame
+    Dino.","parentUIDs":[20],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":612,"yPos":737},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"Blame
+    Dario","parentUIDs":[20],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":false,"xPos":940,"yPos":581},"ID":23,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+    have an idea.","parentUIDs":[20],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":1946,"yPos":1155},"ID":39,"ParamActions":[],"TMPFontGUID":null,"Text":"Go
+    to bonfire.","parentUIDs":[38],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":true,"xPos":-65,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"So...I
+    think its time that you both have a conversation with eachother.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":false,"xPos":147,"yPos":22},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+    guess you''re right...","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":359,"yPos":24},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Yes.
+    Sure...","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":-91,"yPos":134},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"The
+    brothers look at eachother neither wanting to talk first.","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":null,"OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":122,"yPos":140},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok
+    Dario why don''t you start.","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":356,"yPos":138},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+    just don''t understand why you want to change things after so many years.","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":576,"yPos":157},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"I
     just want to improve it! People expect alot from us now that it is us running
-    things rather than our father. ","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":-285,"yPos":-435},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"But
-    its a dish prepared for this town since before you were born!!","parentUIDs":[9],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":-1050,"yPos":-336},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"But
-    its too predicable!!","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":13},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":14},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":15}],"EditorInfo":{"isRoot":false,"xPos":-1137,"yPos":-237},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"Calm
-    down guys.","parentUIDs":[11],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leondardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":false,"xPos":-1120,"yPos":-84},"ID":16,"ParamActions":[],"TMPFontGUID":null,"Text":"Well
-    its hard to let go because father taught us this recipe...","parentUIDs":[15],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":18}],"EditorInfo":{"isRoot":false,"xPos":-884,"yPos":-17},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"He
-    taught us to cook with courage. I think you''re afraid to let him go. ","parentUIDs":[16],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":19}],"EditorInfo":{"isRoot":false,"xPos":-617,"yPos":-97},"ID":18,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+    things rather than our father. ","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":785,"yPos":157},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"But
+    its a dish prepared for this town since before you were born!!","parentUIDs":[9],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":20,"yPos":256},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"But
+    its too predicable!!","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":13},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":14},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":15}],"EditorInfo":{"isRoot":false,"xPos":-67,"yPos":355},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"Calm
+    down guys.","parentUIDs":[11],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leondardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":false,"xPos":-50,"yPos":508},"ID":16,"ParamActions":[],"TMPFontGUID":null,"Text":"Well
+    its hard to let go because father taught us this recipe...","parentUIDs":[15],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":18}],"EditorInfo":{"isRoot":false,"xPos":186,"yPos":575},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"He
+    taught us to cook with courage. I think you''re afraid to let him go. ","parentUIDs":[16],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":19}],"EditorInfo":{"isRoot":false,"xPos":453,"yPos":495},"ID":18,"ParamActions":[],"TMPFontGUID":null,"Text":"I
     haven''t forgotten that. But I feel like you''re trying to erase him completely.
-    ","parentUIDs":[17],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":20}],"EditorInfo":{"isRoot":false,"xPos":-483,"yPos":-202},"ID":19,"ParamActions":[],"TMPFontGUID":null,"Text":"I
-    never thought about it like that...","parentUIDs":[18],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":21},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":22},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":23}],"EditorInfo":{"isRoot":false,"xPos":-321,"yPos":-106},"ID":20,"ParamActions":[],"TMPFontGUID":null,"Text":"*Whispers*\nWe
-    are finally getting somwhere!","parentUIDs":[19],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":25}],"EditorInfo":{"isRoot":false,"xPos":-37,"yPos":68},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Why
+    ","parentUIDs":[17],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":20}],"EditorInfo":{"isRoot":false,"xPos":587,"yPos":390},"ID":19,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+    never thought about it like that...","parentUIDs":[18],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":21},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":22},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":23}],"EditorInfo":{"isRoot":false,"xPos":749,"yPos":486},"ID":20,"ParamActions":[],"TMPFontGUID":null,"Text":"*Whispers*\nWe
+    are finally getting somwhere!","parentUIDs":[19],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":25}],"EditorInfo":{"isRoot":false,"xPos":1033,"yPos":660},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Why
     don''t you try each others food since it is something that connects you. Maybe
-    you can learn alot from it.","parentUIDs":[23],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"You","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":27}],"EditorInfo":{"isRoot":false,"xPos":-205,"yPos":170},"ID":25,"ParamActions":[],"TMPFontGUID":null,"Text":"Dino
-    tries Dario''s Bruschetta.\nDario tries Dino''s Pan Fried Polenta. ","parentUIDs":[24],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":null,"OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":28}],"EditorInfo":{"isRoot":false,"xPos":-456,"yPos":260},"ID":27,"ParamActions":[],"TMPFontGUID":null,"Text":"Wow...
-    This tastes like home. ","parentUIDs":[25],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":29}],"EditorInfo":{"isRoot":false,"xPos":-195,"yPos":326},"ID":28,"ParamActions":[],"TMPFontGUID":null,"Text":"Wow...
-    This is really good. It kind of tastes like how dad used to make it. ","parentUIDs":[27],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":31}],"EditorInfo":{"isRoot":false,"xPos":57,"yPos":202},"ID":29,"ParamActions":[],"TMPFontGUID":null,"Text":"It
-    is! I only  changed his recipe slightly. I never wanted to fully erase him. ","parentUIDs":[28],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":32}],"EditorInfo":{"isRoot":false,"xPos":284,"yPos":103},"ID":31,"ParamActions":[],"TMPFontGUID":null,"Text":"I''m
-    sorry for getting so angry with you. I had the completely wrong idea. ","parentUIDs":[29],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":33}],"EditorInfo":{"isRoot":false,"xPos":514,"yPos":54},"ID":32,"ParamActions":[],"TMPFontGUID":null,"Text":"And
+    you can learn alot from it.","parentUIDs":[23],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"You","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":27}],"EditorInfo":{"isRoot":false,"xPos":865,"yPos":762},"ID":25,"ParamActions":[],"TMPFontGUID":null,"Text":"Dino
+    tries Dario''s Bruschetta.\nDario tries Dino''s Pan Fried Polenta. ","parentUIDs":[24],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":null,"OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":28}],"EditorInfo":{"isRoot":false,"xPos":614,"yPos":852},"ID":27,"ParamActions":[],"TMPFontGUID":null,"Text":"Wow...
+    This tastes like home. ","parentUIDs":[25],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":29}],"EditorInfo":{"isRoot":false,"xPos":875,"yPos":918},"ID":28,"ParamActions":[],"TMPFontGUID":null,"Text":"Wow...
+    This is really good. It kind of tastes like how dad used to make it. ","parentUIDs":[27],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":31}],"EditorInfo":{"isRoot":false,"xPos":1127,"yPos":794},"ID":29,"ParamActions":[],"TMPFontGUID":null,"Text":"It
+    is! I only  changed his recipe slightly. I never wanted to fully erase him. ","parentUIDs":[28],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":32}],"EditorInfo":{"isRoot":false,"xPos":1354,"yPos":695},"ID":31,"ParamActions":[],"TMPFontGUID":null,"Text":"I''m
+    sorry for getting so angry with you. I had the completely wrong idea. ","parentUIDs":[29],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":33}],"EditorInfo":{"isRoot":false,"xPos":1584,"yPos":646},"ID":32,"ParamActions":[],"TMPFontGUID":null,"Text":"And
     I''m sorry too. I didn''t notice how much my words hurt you. ","parentUIDs":[31],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino
-    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":34}],"EditorInfo":{"isRoot":false,"xPos":537,"yPos":191},"ID":33,"ParamActions":[],"TMPFontGUID":null,"Text":"The
-    brothers embrace. ","parentUIDs":[32],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":null,"OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":35}],"EditorInfo":{"isRoot":false,"xPos":304,"yPos":273},"ID":34,"ParamActions":[],"TMPFontGUID":null,"Text":"Looks
-    like the festival is back on!","parentUIDs":[33],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":36}],"EditorInfo":{"isRoot":false,"xPos":556,"yPos":305},"ID":35,"ParamActions":[],"TMPFontGUID":null,"Text":"Thank
-    you so much!!!","parentUIDs":[34],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":37}],"EditorInfo":{"isRoot":false,"xPos":305,"yPos":392},"ID":36,"ParamActions":[],"TMPFontGUID":null,"Text":"Thank
+    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":34}],"EditorInfo":{"isRoot":false,"xPos":1607,"yPos":783},"ID":33,"ParamActions":[],"TMPFontGUID":null,"Text":"The
+    brothers embrace. ","parentUIDs":[32],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":null,"OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":35}],"EditorInfo":{"isRoot":false,"xPos":1374,"yPos":865},"ID":34,"ParamActions":[],"TMPFontGUID":null,"Text":"Looks
+    like the festival is back on!","parentUIDs":[33],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":36}],"EditorInfo":{"isRoot":false,"xPos":1626,"yPos":897},"ID":35,"ParamActions":[],"TMPFontGUID":null,"Text":"Thank
+    you so much!!!","parentUIDs":[34],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":37}],"EditorInfo":{"isRoot":false,"xPos":1375,"yPos":984},"ID":36,"ParamActions":[],"TMPFontGUID":null,"Text":"Thank
     you!!!","parentUIDs":[35],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dino
-    & Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":38}],"EditorInfo":{"isRoot":false,"xPos":639,"yPos":452},"ID":37,"ParamActions":[],"TMPFontGUID":null,"Text":"Why
-    don''t you join us for the festival fireworks tonight. ","parentUIDs":[36],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":39}],"EditorInfo":{"isRoot":false,"xPos":896,"yPos":438},"ID":38,"ParamActions":[],"TMPFontGUID":null,"Text":"You
-    can try some of the main dish: Fritto Misto. ","parentUIDs":[37],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo
-    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
+    & Dario","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":38}],"EditorInfo":{"isRoot":false,"xPos":1709,"yPos":1044},"ID":37,"ParamActions":[],"TMPFontGUID":null,"Text":"Why
+    don''t you join us for the bonfire tonight. ","parentUIDs":[36],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":39}],"EditorInfo":{"isRoot":false,"xPos":1966,"yPos":1030},"ID":38,"ParamActions":[],"TMPFontGUID":null,"Text":"You
+    can try some of the main dish that the brothers will now collaborate on: Fritto
+    Misto. ","parentUIDs":[37],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Leonardo
+    ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":883,"yPos":343},"ID":40,"ParamActions":[],"TMPFontGUID":null,"Text":"Dino
+    looks frustrated.","parentUIDs":[14],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":777,"yPos":260},"ID":41,"ParamActions":[],"TMPFontGUID":null,"Text":"Dario
+    rolls his eyes. ","parentUIDs":[13],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
   DefaultSprite: {fileID: 0}
@@ -2222,23 +2226,13 @@ MonoBehaviour:
   - {fileID: 430490136}
   - {fileID: 430490135}
   - {fileID: 430490134}
+  - {fileID: 430490167}
+  - {fileID: 430490166}
   ContinueFont: {fileID: 0}
   EndConversationFont: {fileID: 0}
   Event:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 671618224}
-        m_TargetAssemblyTypeName: FinalPanelUI, Assembly-CSharp
-        m_MethodName: StartSlideshow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &279095268
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,6 +3280,8 @@ GameObject:
   - component: {fileID: 430490136}
   - component: {fileID: 430490135}
   - component: {fileID: 430490134}
+  - component: {fileID: 430490167}
+  - component: {fileID: 430490166}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -3657,7 +3653,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueEditor.NodeEventHolder
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1939030}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: TaskCompleted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   NodeID: 23
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
@@ -3676,7 +3684,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueEditor.NodeEventHolder
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1939030}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: TaskRejected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   NodeID: 22
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
@@ -3695,7 +3715,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueEditor.NodeEventHolder
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1939030}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: TaskRejected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   NodeID: 21
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
@@ -3809,7 +3841,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueEditor.NodeEventHolder
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1939030}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: TaskCompleted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   NodeID: 15
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
@@ -3828,7 +3872,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueEditor.NodeEventHolder
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1939030}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: TaskRejected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   NodeID: 14
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
@@ -3847,7 +3903,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueEditor.NodeEventHolder
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1939030}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: TaskRejected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   NodeID: 13
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
@@ -3982,6 +4050,44 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 3
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &430490166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430490129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueEditor.NodeEventHolder
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 41
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &430490167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430490129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueEditor.NodeEventHolder
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 40
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
@@ -5948,19 +6054,19 @@ MonoBehaviour:
   slide: {fileID: 1642171719}
   captiontext: {fileID: 1168588508}
   captions:
-  - You attended the fireworks show later that evening.
+  - You attended the bonfire later that evening.
   - 'The town was so happy. '
   - The festival was a success because of your help.
   - Since you were so kind, Dino and Dario wanted to give you their new and improved
     Fritto Misto recipe.
   slides:
-  - {fileID: 21300000, guid: be77712cb52d4ec479e2abfbd5c36550, type: 3}
-  - {fileID: 21300000, guid: be77712cb52d4ec479e2abfbd5c36550, type: 3}
-  - {fileID: 21300000, guid: be77712cb52d4ec479e2abfbd5c36550, type: 3}
-  - {fileID: 21300000, guid: be77712cb52d4ec479e2abfbd5c36550, type: 3}
+  - {fileID: 21300000, guid: 35d1ff14cc505e74b9c5c5339252e55b, type: 3}
+  - {fileID: 21300000, guid: 35d1ff14cc505e74b9c5c5339252e55b, type: 3}
+  - {fileID: 21300000, guid: 35d1ff14cc505e74b9c5c5339252e55b, type: 3}
+  - {fileID: 21300000, guid: 35d1ff14cc505e74b9c5c5339252e55b, type: 3}
   player: {fileID: 75832547}
   manager: {fileID: 1617072595}
-  fireworks: {fileID: 8300000, guid: c08595dc6baeb954393eab8efa36f9d3, type: 3}
+  fireworks: {fileID: 8300000, guid: 4b231c14bb4ceca49821e7e5b076ddeb, type: 3}
 --- !u!1 &691865126
 GameObject:
   m_ObjectHideFlags: 0

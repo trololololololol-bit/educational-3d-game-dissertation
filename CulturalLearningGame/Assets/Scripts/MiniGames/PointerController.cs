@@ -336,6 +336,7 @@ public class PointerController : MonoBehaviour
         zoneActive = false;
         zoneTimer = 0f;
         PrecisionUI.Instance.UpdateStageThreeUI(currentLives, plateProgress, plateGoal);
+        PrecisionUI.Instance.ShowPlate(0);
        
         
     }
