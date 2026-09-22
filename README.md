@@ -4,14 +4,13 @@ A 3D narrative-driven educational game developed using Unity and C#, designed to
 through interactive food-based storytelling and exploration.
 
 Features:
-- Branching dialogue system influenced by player choices
+- Branching dialogue system that is influenced by player choices
 - NPC emotional response and narrative progression system
 - Exploration-based 3D environment
 - Mini-game and task-based learning mechanics
-- Choice-driven story telling and interaction design
 
 What I Learned:
-- Implementing branching logic in Unity (c#)
+- Implementing branching logic in Unity (+c#)
 - Adding psychological learning principles to game design
 - Structuring gameplay systems for engagement and education
 - Designing an interactive learning experience
